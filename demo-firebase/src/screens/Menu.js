@@ -39,6 +39,16 @@ const Menu = (props) => {
 					)
 				}
 			/>
+
+			<Button
+				title='Ejemplo FlatList'
+				color='tomato'
+				onPress={() =>
+					props.navigation.navigate(
+						'EjemploFlatList'
+					)
+				}
+			/>
 		</ScrollView>
 	);
 };
