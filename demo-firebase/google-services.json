@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "387492530432",
+    "project_id": "fir-firebase-7956c",
+    "storage_bucket": "fir-firebase-7956c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387492530432:android:6996cbd42cdce254558be5",
+        "android_client_info": {
+          "package_name": "com.impactosdigitales.curso.dia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387492530432-qgavs1s1ikal2gh369cghuqoa6pd707c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALs6vvzNG_xmt505emlnPqk4VNILMuFQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387492530432-qgavs1s1ikal2gh369cghuqoa6pd707c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "387492530432-mvtir3g94ssboh3skd7medsgrd2gm2pr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.impactosdigitales.curso.dia",
+                "app_store_id": "123456789"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
