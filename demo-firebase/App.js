@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
 /**
@@ -17,7 +16,12 @@ import Menu from './src/screens/Menu';
 import EjemploFlex from './src/screens/EjemploFlex';
 import EjemploFlatList from './src/screens/EjemploFlatList';
 import DetalleUsuario from './src/screens/DetalleUsuario';
-
+import ListaGeneros from './src/screens/ListaGeneros';
+import ListaPeliculas from './src/screens/ListaPeliculas';
+import { TouchableOpacity } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
+import AgregarGenero from './src/screens/AgregarGenero';
+import AgregarPelicula from './src/screens/AgregarPelicula';
 /**
  * Generamos una constante para guardar la navegación
  * de tipo stack
@@ -65,6 +69,64 @@ export default function App() {
 				<Stack.Screen
 					name='DetalleUsuario'
 					component={DetalleUsuario}
+				/>
+
+				<Stack.Screen
+					name='ListaGeneros'
+					component={ListaGeneros}
+					options={(propScreenOptions) => ({
+						title: 'Géneros',
+						headerRight: () => (
+							<TouchableOpacity
+								style={{ marginRight: 20 }}
+								onPress={() =>
+									propScreenOptions.navigation.navigate(
+										'AgregarGenero'
+									)
+								}
+							>
+								<Entypo
+									name='add-to-list'
+									size={20}
+								/>
+							</TouchableOpacity>
+						),
+					})}
+				/>
+
+				<Stack.Screen
+					name='ListaPeliculas'
+					component={ListaPeliculas}
+					options={(propScreenOptions) => ({
+						title: 'Peliculas',
+						headerRight: () => (
+							<TouchableOpacity
+								style={{ marginRight: 20 }}
+								onPress={() =>
+									propScreenOptions.navigation.navigate(
+										'AgregarPelicula'
+									)
+								}
+							>
+								<Entypo
+									name='add-to-list'
+									size={20}
+								/>
+							</TouchableOpacity>
+						),
+					})}
+				/>
+
+				<Stack.Screen
+					options={{ title: 'Agregar género' }}
+					name='AgregarGenero'
+					component={AgregarGenero}
+				/>
+
+				<Stack.Screen
+					options={{ title: 'Agregar pelicula' }}
+					name='AgregarPelicula'
+					component={AgregarPelicula}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

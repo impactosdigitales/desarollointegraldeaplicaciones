@@ -8,7 +8,9 @@ import {
 
 const Menu = (props) => {
 	return (
-		<ScrollView>
+		<ScrollView style={{ flex: 1 }}>
+			<Separador />
+
 			<Button
 				title='Ejemplo Flex'
 				color='tomato'
@@ -30,6 +32,8 @@ const Menu = (props) => {
 				}
 			/>
 
+			<Separador />
+
 			<Button
 				title='Ejemplo State'
 				color='tomato'
@@ -40,6 +44,8 @@ const Menu = (props) => {
 				}
 			/>
 
+			<Separador />
+
 			<Button
 				title='Ejemplo FlatList'
 				color='tomato'
@@ -49,8 +55,36 @@ const Menu = (props) => {
 					)
 				}
 			/>
+
+			<Separador />
+
+			<Button
+				title='Lista de géneros'
+				color='tomato'
+				onPress={() =>
+					props.navigation.navigate(
+						'ListaGeneros'
+					)
+				}
+			/>
+
+			<Separador />
+
+			<Button
+				title='Lista de películas'
+				color='tomato'
+				onPress={() =>
+					props.navigation.navigate(
+						'ListaPeliculas'
+					)
+				}
+			/>
 		</ScrollView>
 	);
+};
+
+const Separador = () => {
+	return <View style={{ marginVertical: 10 }} />;
 };
 
 export default Menu;
