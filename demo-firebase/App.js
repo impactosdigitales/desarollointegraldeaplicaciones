@@ -18,7 +18,7 @@ import EjemploFlatList from './src/screens/EjemploFlatList';
 import DetalleUsuario from './src/screens/DetalleUsuario';
 import ListaGeneros from './src/screens/ListaGeneros';
 import ListaPeliculas from './src/screens/ListaPeliculas';
-import { TouchableOpacity } from 'react-native';
+import { LogBox, TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import AgregarGenero from './src/screens/AgregarGenero';
 import AgregarPelicula from './src/screens/AgregarPelicula';
@@ -29,6 +29,11 @@ import AgregarPelicula from './src/screens/AgregarPelicula';
 const Stack = createStackNavigator();
 
 export default function App() {
+	LogBox.ignoreLogs([
+		'Setting a timer for a long period of time',
+	]);
+	//LogBox.ignoreAllLogs();
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName='Menu'>
@@ -78,7 +83,10 @@ export default function App() {
 						title: 'Géneros',
 						headerRight: () => (
 							<TouchableOpacity
-								style={{ marginRight: 20 }}
+								style={{
+									paddingHorizontal: 20,
+									paddingVertical: 5,
+								}}
 								onPress={() =>
 									propScreenOptions.navigation.navigate(
 										'AgregarGenero'
