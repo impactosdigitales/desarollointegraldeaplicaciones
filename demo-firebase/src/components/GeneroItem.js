@@ -1,9 +1,16 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {
+	Alert,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import {
 	FontAwesome5,
 	FontAwesome,
 } from '@expo/vector-icons';
+
+import firebase from './../backend/firebase';
 
 const GeneroItem = (props) => {
 	return (
@@ -38,6 +45,15 @@ const GeneroItem = (props) => {
 				}}
 			>
 				<TouchableOpacity
+					onPress={() =>
+						props.navigation.navigate(
+							'EditarGenero',
+							{
+								id: props.item.id,
+								nombre: props.item.nombre,
+							}
+						)
+					}
 					style={{
 						width: 44,
 						height: 44,
@@ -56,6 +72,33 @@ const GeneroItem = (props) => {
 				</TouchableOpacity>
 
 				<TouchableOpacity
+					onPress={() => {
+						Alert.alert(
+							`¿Eliminar    "${props.item.nombre}"?`,
+							'Esta acción no puede deshacerse',
+							[
+								{
+									text: 'Cancelar',
+									onPress: null,
+								},
+								{
+									text: 'Eliminar',
+									onPress: async () => {
+										await firebase.db
+											.collection(
+												'generos'
+											)
+											.doc(
+												props.item
+													.id
+											)
+											.delete();
+									},
+									style: 'destructive',
+								},
+							]
+						);
+					}}
 					style={{
 						width: 44,
 						height: 44,

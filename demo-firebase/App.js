@@ -18,10 +18,15 @@ import EjemploFlatList from './src/screens/EjemploFlatList';
 import DetalleUsuario from './src/screens/DetalleUsuario';
 import ListaGeneros from './src/screens/ListaGeneros';
 import ListaPeliculas from './src/screens/ListaPeliculas';
-import { LogBox, TouchableOpacity } from 'react-native';
+import {
+	LogBox,
+	Platform,
+	TouchableOpacity,
+} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import AgregarGenero from './src/screens/AgregarGenero';
 import AgregarPelicula from './src/screens/AgregarPelicula';
+import EditarGenero from './src/screens/EditarGenero';
 /**
  * Generamos una constante para guardar la navegación
  * de tipo stack
@@ -29,10 +34,9 @@ import AgregarPelicula from './src/screens/AgregarPelicula';
 const Stack = createStackNavigator();
 
 export default function App() {
-	LogBox.ignoreLogs([
-		'Setting a timer for a long period of time',
-	]);
-	//LogBox.ignoreAllLogs();
+	if (Platform.OS !== 'web') {
+		LogBox.ignoreAllLogs();
+	}
 
 	return (
 		<NavigationContainer>
@@ -129,6 +133,12 @@ export default function App() {
 					options={{ title: 'Agregar género' }}
 					name='AgregarGenero'
 					component={AgregarGenero}
+				/>
+
+				<Stack.Screen
+					options={{ title: 'Editar género' }}
+					name='EditarGenero'
+					component={EditarGenero}
 				/>
 
 				<Stack.Screen

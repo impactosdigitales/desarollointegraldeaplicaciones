@@ -60,7 +60,10 @@ const ListaGeneros = (props) => {
 		<FlatList
 			data={generos}
 			renderItem={(item) => (
-				<GeneroItem item={item.item} />
+				<GeneroItem
+					item={item.item}
+					navigation={props.navigation}
+				/>
 			)}
 			keyExtractor={(item) => item.id}
 		/>

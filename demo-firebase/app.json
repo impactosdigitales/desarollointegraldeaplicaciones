@@ -20,6 +20,7 @@
 			"supportsTablet": true
 		},
 		"android": {
+			"versionCode": 1,
 			"package": "com.impactosdigitales.curso.dia",
 			"googleServicesFile": "./google-services.json",
 			"adaptiveIcon": {
@@ -29,6 +30,7 @@
 		},
 		"web": {
 			"favicon": "./assets/favicon.png"
-		}
+		},
+		"description": ""
 	}
 }
